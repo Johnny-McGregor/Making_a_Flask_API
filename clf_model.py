@@ -25,7 +25,7 @@ class NLPClassifier(object):
     def vectorizer_transform(self, X):
         """Transforms the text data into a dense matrix
         """
-        X_transformed = self.vectorizer.tranform(X):
+        X_transformed = self.vectorizer.tranform(X)
         return X_transformed
 
     def train(self, X, y):
@@ -34,7 +34,7 @@ class NLPClassifier(object):
         """
         self.clf.fit(X, y)
 
-    def predict.proba(self, X):
+    def predict_proba(self, X):
         """Returns probability of text being science related (1 class)
         in a numpy array
         """
@@ -56,7 +56,7 @@ class NLPClassifier(object):
             pickle.dump(self.clf, f)
             print("Classifer saved at {}".format(path))
 
-    def classification_ report(self, X, y, class_names):
+    def classification_report(self, X, y, class_names):
         """get a classification report for metrics
         """
         classification_report(self.clf, X, y, target_names = [None])
