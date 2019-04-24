@@ -34,7 +34,7 @@ def build_model():
     with open('./lib/data/allposts.csv') as f:
         data = pd.read_csv(f)
 
-    data.posts = data.post.apply(post_to_words)
+    data.posts = data.posts.apply(post_to_words)
 
     model.vectorizer_fit(data.posts)
     print('Vectorizer has been fit')
