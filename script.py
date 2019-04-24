@@ -52,8 +52,8 @@ class SciencePredictor(Resource):
 
     #setup Api resource routing here
     #route the url to the resource
-    api.add_resource(SciencePredictor, '/')
+api.add_resource(SciencePredictor, '/')
 
 
-    if __name__ == '__main__':
-        app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
