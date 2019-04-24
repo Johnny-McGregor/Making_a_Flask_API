@@ -25,7 +25,7 @@ class NLPClassifier(object):
     def vectorizer_transform(self, X):
         """Transforms the text data into a dense matrix
         """
-        X_transformed = self.vectorizer.tranform(X)
+        X_transformed = self.vectorizer.transform(X)
         return X_transformed
 
     def train(self, X, y):
