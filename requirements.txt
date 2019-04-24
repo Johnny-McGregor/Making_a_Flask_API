@@ -7,5 +7,4 @@ pandas
 bs4
 regex
 nltk
-pickle
 json 
