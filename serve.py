@@ -9,23 +9,23 @@ from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 
 #define a function to clean up posts
-def post_to_words(post):
-    #return only text from each post
-    post_text = BeautifulSoup(post).get_text()
-
-    #use regex to eliminate punctuation
-    letters_only = re.sub("[^a-zA-Z]", " ", post_text)
-
-    #lowercase everything
-    words = letters_only.lower().split()
-
-    #assign set of all stop words ("a", "and", etc) to a variable
-    stops = set(stopwords.words('english'))
-
-    #keep only words that aren't in stops
-    meaningful_words = [w for w in words if not w in stops]
-
-    return(" ".join(meaningful_words))
+# def post_to_words(post):
+#     #return only text from each post
+#     post_text = BeautifulSoup(post).get_text()
+#
+#     #use regex to eliminate punctuation
+#     letters_only = re.sub("[^a-zA-Z]", " ", post_text)
+#
+#     #lowercase everything
+#     words = letters_only.lower().split()
+#
+#     #assign set of all stop words ("a", "and", etc) to a variable
+#     stops = set(stopwords.words('english'))
+#
+#     #keep only words that aren't in stops
+#     meaningful_words = [w for w in words if not w in stops]
+#
+#     return(" ".join(meaningful_words))
 
 #build and save a fit model
 def build_model():
@@ -34,7 +34,7 @@ def build_model():
     with open('./lib/data/allposts.csv') as f:
         data = pd.read_csv(f)
 
-    data.posts = data.posts.apply(post_to_words)
+    #data.posts = data.posts.apply(post_to_words)
 
     model.vectorizer_fit(data.posts)
     print('Vectorizer has been fit')
