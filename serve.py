@@ -47,16 +47,16 @@ def build_model():
     X_train, X_test, y_train, y_test = train_test_split(X,
                                                         y,
                                                         stratify=y)
-    model.train(X.train, y_train)
+    model.train(X_train, y_train)
     print('Model has been trained')
 
     model.pickle_clf()
     model.pickle_vectorizer()
 
-    model.classification_report(X_test,
-                                y_test,
-                                target_names=['science',
-                                              'not science'])
+    preds = model.predict(X_test)
+
+    model.classification_report(y_test, preds,
+                               target_names = ['Science', 'Not Science'])
 
 if __name__ == "__main__":
     build_model()

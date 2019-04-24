@@ -35,10 +35,15 @@ class NLPClassifier(object):
         self.clf.fit(X, y)
 
     def predict_proba(self, X):
-        """Returns probability of text being science related (1 class)
-        in a numpy array
+        """Returns probability for the binary class '1' in a numpy array
         """
-        y_proba = self.clf.predict(X)
+        y_proba = self.clf.predict_proba(X)
+        return y_proba[:, 1]
+
+    def predict(self, X):
+        """Returns the predicted class in an array
+        """
+        y_pred = self.clf.predict(X)
         return y_pred
 
     def pickle_vectorizer(self, path='./lib/models/CountVectorizer.pkl'):
@@ -56,7 +61,7 @@ class NLPClassifier(object):
             pickle.dump(self.clf, f)
             print("Classifer saved at {}".format(path))
 
-    def classification_report(self, X, y, class_names):
+    def classification_report(self, X, y, target_names):
         """get a classification report for metrics
         """
-        classification_report(self.clf, X, y, target_names = [None])
+        classification_report(X, y, target_names = target_names)
