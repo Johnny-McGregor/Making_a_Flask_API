@@ -12,7 +12,7 @@ model = NLPClassifier()
 
 #load trained classifier
 clf_path = 'lib/models/ScienceClassifier.pkl'
-with open(path, 'rb') f:
+with open(path, 'rb') as f:
     model.clf = pickle.load(f)
 
 #load trained vectorizer
