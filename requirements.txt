@@ -1,0 +1,11 @@
+gunicorn
+flask
+flask_restful
+sklearn
+numpy
+pandas
+bs4
+regex
+nltk
+pickle
+json 
